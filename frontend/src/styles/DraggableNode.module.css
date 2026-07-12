@@ -1,0 +1,50 @@
+/* Draggable chip in the toolbar palette */
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 11px 5px 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: grab;
+  user-select: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.chip:hover {
+  transform: translateY(-2px);
+  background: var(--bg-field);
+  border-color: var(--chip-color, var(--accent));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px color-mix(in srgb, var(--chip-color, var(--accent)) 30%, transparent);
+}
+
+.chip:active {
+  cursor: grabbing;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Colored icon badge left of the label */
+.icon {
+  font-size: 11px;
+  line-height: 1;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--chip-color, var(--accent)) 18%, transparent);
+  color: var(--chip-color, var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.label {
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 500;
+}

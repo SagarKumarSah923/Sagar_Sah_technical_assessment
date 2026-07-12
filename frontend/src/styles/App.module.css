@@ -1,0 +1,8 @@
+/* Full-screen column: toolbar → canvas → submit bar */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg-app);
+}

@@ -1,0 +1,125 @@
+/* ── Node shell ──────────────────────────────────────────────────────────── */
+/* --node-color is injected per-instance via inline style                    */
+.node {
+  min-width: 230px;
+  border: 1.5px solid var(--node-color, var(--accent));
+  border-radius: var(--radius);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-node);
+  font-size: 12px;
+  position: relative;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+.node:hover {
+  box-shadow: var(--shadow-lift);
+}
+
+/* Colored title bar */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--node-color, var(--accent));
+  color: #fff;
+  padding: 7px 10px;
+  border-radius: 6px 6px 0 0;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* Small icon badge in the header */
+.headerIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 11px;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+/* Body — wraps all field children */
+.body {
+  padding: 10px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Fields inside any node ──────────────────────────────────────────────── */
+.body label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.body input,
+.body select,
+.body textarea {
+  background: var(--bg-field);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  padding: 6px 9px;
+  font-size: 12px;
+  font-family: var(--font);
+  line-height: 1.4;
+  outline: none;
+  width: 100%;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.body input:focus,
+.body select:focus,
+.body textarea:focus {
+  border-color: var(--node-color, var(--accent));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--node-color, var(--accent)) 15%, transparent);
+}
+
+.body select option  { background: var(--bg-surface); color: var(--text-primary); }
+
+/* Descriptive text inside node body (e.g. LLM subtitle) */
+.body span {
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* ── Handles ─────────────────────────────────────────────────────────────── */
+.node :global(.react-flow__handle) {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--node-color, var(--accent));
+  background: var(--bg-surface);
+  border-radius: 50%;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.node :global(.react-flow__handle:hover) {
+  background: var(--node-color, var(--accent));
+  transform: scale(1.35);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--node-color, var(--accent)) 25%, transparent);
+}
+
+/* ── Handle labels ───────────────────────────────────────────────────────── */
+.handleLabel {
+  position: absolute;
+  transform: translateY(-50%);
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-faint);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 0.3px;
+}

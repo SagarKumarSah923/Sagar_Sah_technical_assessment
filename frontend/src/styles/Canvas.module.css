@@ -1,0 +1,54 @@
+/* Canvas wrapper — fills all height between toolbar and submit bar */
+.wrapper {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  min-height: 0;    /* required for flex children to respect parent height */
+}
+
+/* ── Empty-state overlay ─────────────────────────────────────────────────── */
+/* Shown when the canvas has no nodes. pointer-events:none lets drag-drop through */
+.emptyState {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.emptyIcon {
+  font-size: 44px;
+  color: var(--text-faint);
+  line-height: 1;
+  opacity: 0.5;
+}
+
+.emptyTitle {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-muted);
+  opacity: 0.55;
+}
+
+.emptyBody {
+  font-size: 13px;
+  color: var(--text-muted);
+  opacity: 0.35;
+  text-align: center;
+  max-width: 300px;
+  line-height: 1.6;
+}
+
+/* Dashed drop-zone hint border */
+.emptyBorder {
+  position: absolute;
+  inset: 24px;
+  border: 2px dashed var(--border-subtle);
+  border-radius: 12px;
+  pointer-events: none;
+  opacity: 0.4;
+}
